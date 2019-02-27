@@ -1,5 +1,10 @@
-Memory-Game
-===========
+# Memory Game
 
-JavaScript Game </br>
-<a href="http://mtrajk.github.io/Memory-Game/">Play Game</a>
+Simple responsive game made with [jQuery](https://jquery.com/).
+
+[Play Game](https://mtrajk.github.io/Memory-Game/)
+
+![Memory game screenshot](https://raw.githubusercontent.com/MTrajK/Memory-Game/master/img/memory-game.png)
+
+### Goal
+Experimenting with GitHub pages.
