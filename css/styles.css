@@ -3,7 +3,7 @@
 }
 
 @media only screen and (max-width: 480px){
-    .container, #time, #modal {
+    .container, #time, #modal, #game-buttons {
         width: 200px;
         margin: 50px auto 0;
     }
@@ -37,15 +37,14 @@
 
     .btn {
         margin: 15px auto;
-        padding: 10px;
     }
 
-    #time, #game {
+    #time, #game, #game-buttons {
         margin-top: 25px;
     }
 
-    #btn-menu {
-        margin-bottom: 0px !important;
+    .btn, #btn-menu, #btn-try {
+        padding: 10px;
     }
 
     #time {
@@ -59,7 +58,7 @@
 }
 
 @media only screen and (min-width: 481px) and (max-width: 630px){
-    .container, #time, #modal {
+    .container, #time, #modal, #game-buttons {
         width: 300px;
         margin: 50px auto 0;
     }
@@ -93,15 +92,14 @@
 
     .btn {
         margin: 25px auto;
-        padding: 10px;
     }
 
-    #time, #game {
+    #time, #game, #game-buttons {
         margin-top: 25px;
     }
     
-    #btn-menu {
-        margin-bottom: 0px !important;
+    .btn, #btn-menu, #btn-try {
+        padding: 10px;
     }
 
     #time {
@@ -115,7 +113,7 @@
 }
 
 @media only screen and (min-width: 631px) and (max-width: 1500px) {
-    .container, #time, #modal {
+    .container, #time, #modal, #game-buttons {
         width: 400px;
         margin: 75px auto 0;
     }
@@ -148,16 +146,14 @@
     
     .btn {
         margin: 35px auto;
-        padding: 15px;
     }
 
-    #time, #game {
+    #time, #game, #game-buttons {
         margin-top: 30px;
     }
     
-    #btn-menu {
-        margin-top: 30px !important;
-        margin-bottom: 0px !important;
+    .btn, #btn-menu, #btn-try {
+        padding: 15px;
     }
 
     #time {
@@ -171,7 +167,7 @@
 }
 
 @media only screen and (min-width: 1501px) {
-    .container, #time, #modal {
+    .container, #time, #modal, #game-buttons {
         width: 500px;
         margin: 100px auto 0;
     }
@@ -204,15 +200,14 @@
 
     .btn {
         margin: 35px auto;
-        padding: 15px;
     }
 
-    #time, #game {
+    #time, #game, #game-buttons {
         margin-top: 40px;
     }
 
-    #btn-menu {
-        margin-bottom: 0px !important;
+    .btn, #btn-menu, #btn-try {
+        padding: 15px;
     }
 
     #time {
@@ -299,7 +294,7 @@ body {
     transition: all 0.5s ease-in-out !important;
 }
 
-.btn {
+.btn, #btn-menu, #btn-try {
     display: block;
     color: rgb(246, 245, 244);;
     background-color: #5bc0de;
@@ -325,7 +320,7 @@ body {
     cursor: not-allowed !important;
 }
 
-#game, #time, #btn-menu, #modal-background {
+#game, #time, #modal-background, #game-buttons {
     display: none;
 }
 
@@ -365,4 +360,12 @@ body {
 #modal-text {
     color: #737373;
     text-align: center;
+}
+
+#btn-menu {
+    float: left;
+}
+
+#btn-try {
+    float: right;
 }

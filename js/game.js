@@ -5,6 +5,8 @@
     var currentTime = document.querySelector('#current-time');
     var bestTime = document.querySelector('#best-time');
     var btnMenu = document.querySelector('#btn-menu');
+    var btnTry = document.querySelector('#btn-try');
+    var gameBtns = document.querySelector('#game-buttons');
     var modalBackground = document.querySelector('#modal-background');
     var modal = document.querySelector('#modal');
     var closeModal = document.querySelector('#close-modal');
@@ -54,7 +56,7 @@
                         StopGame();
                         
                         setTimeout(function () {
-                            btnMenu.style.display = 'block';
+                            gameBtns.style.display = 'block';
                             modalBackground.style.display = 'block';
                         }, 500);
                     }
@@ -75,7 +77,7 @@
                     }, 500);
 
                     setTimeout(function () {
-                        btnMenu.style.display = 'block';
+                        gameBtns.style.display = 'block';
                         modalBackground.style.display = 'block';
                     }, 1000);
                 }
@@ -103,6 +105,20 @@
     };
 
     var StartGame = function () {
+        start = false;
+        pressed = 0;
+        game.innerHTML = '';
+        fields = [];
+
+        currentTime.innerHTML = '0.00';
+        localStorageTime = localStorage.getItem(`MemoryGame.${level}`);
+        if (localStorageTime === null)
+            bestTime.innerHTML = '/';
+        else {
+            localStorageTime = parseInt(localStorageTime);
+            bestTime.innerHTML = ConvertTime(localStorageTime);
+        }
+
         for (var i = 0; i < gameOptions.numFields; i++) {
             var newField = document.createElement('div');
             newField.classList.add('field');
@@ -125,15 +141,6 @@
                 fields[rand].classList.add('light');
                 i++;
             }
-        }
-
-        currentTime.innerHTML = '0.00';
-        localStorageTime = localStorage.getItem(`MemoryGame.${level}`);
-        if (localStorageTime === null)
-            bestTime.innerHTML = '/';
-        else {
-            localStorageTime = parseInt(localStorageTime);
-            bestTime.innerHTML = ConvertTime(localStorageTime);
         }
         
         menu.style.display = 'none';
@@ -195,14 +202,14 @@
     });
 
     btnMenu.addEventListener('click', function () {
-        start = false;
-        pressed = 0;
         game.style.display = 'none';
         time.style.display = 'none';
-        btnMenu.style.display = 'none';
+        gameBtns.style.display = 'none';
         menu.style.display = 'block';
-        game.innerHTML = '';
-        fields = [];
+    });
+
+    btnTry.addEventListener('click', function () {
+        StartGame();
     });
 
     modalBackground.addEventListener('click', function () {
