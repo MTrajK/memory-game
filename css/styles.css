@@ -3,13 +3,17 @@
 }
 
 @media only screen and (max-width: 480px){
-    .container, #time {
+    .container, #time, #modal {
         width: 200px;
         margin: 50px auto 0;
     }
 
     .container {
         padding: 30px;
+    }
+
+    #modal {
+        padding: 15px;
     }
 
     #game {
@@ -40,20 +44,32 @@
         margin-top: 25px;
     }
 
+    #btn-menu {
+        margin-bottom: 0px !important;
+    }
+
     #time {
         font-size: 15px;
         height: 15px;
     }
+
+    #modal {
+        margin-top: 100px;
+    }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 630px){
-    .container, #time {
+    .container, #time, #modal {
         width: 300px;
         margin: 50px auto 0;
     }
 
     .container {
         padding: 30px;
+    }
+
+    #modal {
+        padding: 15px;
     }
 
     #game {
@@ -83,15 +99,23 @@
     #time, #game {
         margin-top: 25px;
     }
+    
+    #btn-menu {
+        margin-bottom: 0px !important;
+    }
 
     #time {
         font-size: 18px;
         height: 18px;
     }
+    
+    #modal {
+        margin-top: 110px;
+    }
 }
 
 @media only screen and (min-width: 631px) and (max-width: 1500px) {
-    .container, #time {
+    .container, #time, #modal {
         width: 400px;
         margin: 75px auto 0;
     }
@@ -100,6 +124,10 @@
         padding: 40px;
     }
 
+    #modal {
+        padding: 20px;
+    }
+    
     #game {
         height: 400px;
     }
@@ -126,15 +154,24 @@
     #time, #game {
         margin-top: 30px;
     }
+    
+    #btn-menu {
+        margin-top: 30px !important;
+        margin-bottom: 0px !important;
+    }
 
     #time {
         font-size: 21px;
         height: 21px;
     }
+    
+    #modal {
+        margin-top: 125px;
+    }
 }
 
 @media only screen and (min-width: 1501px) {
-    .container, #time {
+    .container, #time, #modal {
         width: 500px;
         margin: 100px auto 0;
     }
@@ -143,6 +180,10 @@
         padding: 50px;
     }
 
+    #modal {
+        padding: 25px;
+    }
+    
     #game {
         height: 500px;
     }
@@ -170,9 +211,17 @@
         margin-top: 40px;
     }
 
+    #btn-menu {
+        margin-bottom: 0px !important;
+    }
+
     #time {
         font-size: 24px;
         height: 24px;
+    }
+
+    #modal {
+        margin-top: 140px;
     }
 }
 
@@ -276,7 +325,7 @@ body {
     cursor: not-allowed !important;
 }
 
-#game, #time {
+#game, #time, #btn-menu, #modal-background {
     display: none;
 }
 
@@ -291,4 +340,29 @@ body {
 
 .best {
     float: right;
+}
+
+#modal-background {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.20);
+    z-index: 10000;
+}
+
+#modal {
+    background-color: #f7f7f7;
+    border: #cccccc solid 2px;
+    border-radius: 35px 0;
+}
+
+#close-modal {
+    margin-bottom: 0px;
+}
+
+#modal-text {
+    color: #737373;
+    text-align: center;
 }
