@@ -1,8 +1,14 @@
+* {
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+}
 
 @media only screen and (max-width: 480px){
-    .container {
+    .container, #time {
         width: 200px;
         margin: 50px auto 0;
+    }
+
+    .container {
         padding: 30px;
     }
 
@@ -10,12 +16,12 @@
         height: 200px;
     }
     
-    .field-easy{
+    .field-easy {
         width: 66.6px;
         height: 66.6px;
     }
 
-    .field-normal{
+    .field-normal {
         width: 50px;
         height: 50px;
     }
@@ -29,12 +35,24 @@
         margin: 15px auto;
         padding: 10px;
     }
+
+    #time, #game {
+        margin-top: 25px;
+    }
+
+    #time {
+        font-size: 15px;
+        height: 15px;
+    }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 630px){
-    .container {
+    .container, #time {
         width: 300px;
         margin: 50px auto 0;
+    }
+
+    .container {
         padding: 30px;
     }
 
@@ -42,17 +60,17 @@
         height: 300px;
     }
     
-    .field-easy{
+    .field-easy {
         width: 100px;
         height: 100px;
     }
 
-    .field-normal{
+    .field-normal {
         width: 75px;
         height: 75px;
     }
 
-    .field-hard{
+    .field-hard {
         width: 60px;
         height: 60px;
     }
@@ -61,12 +79,24 @@
         margin: 25px auto;
         padding: 10px;
     }
+
+    #time, #game {
+        margin-top: 25px;
+    }
+
+    #time {
+        font-size: 18px;
+        height: 18px;
+    }
 }
 
 @media only screen and (min-width: 631px) and (max-width: 1500px) {
-    .container {
+    .container, #time {
         width: 400px;
         margin: 75px auto 0;
+    }
+
+    .container {
         padding: 40px;
     }
 
@@ -74,16 +104,16 @@
         height: 400px;
     }
     
-    .field-easy{
+    .field-easy {
         width: 133.3px;
         height: 133.3px;
     }
-    .field-normal{
+    .field-normal {
         width: 100px;
         height: 100px;
     }
 
-    .field-hard{
+    .field-hard {
         width: 80px;
         height: 80px;
     }
@@ -92,12 +122,24 @@
         margin: 35px auto;
         padding: 15px;
     }
+
+    #time, #game {
+        margin-top: 30px;
+    }
+
+    #time {
+        font-size: 21px;
+        height: 21px;
+    }
 }
 
 @media only screen and (min-width: 1501px) {
-    .container {
+    .container, #time {
         width: 500px;
         margin: 100px auto 0;
+    }
+
+    .container {
         padding: 50px;
     }
 
@@ -105,16 +147,16 @@
         height: 500px;
     }
     
-    .field-easy{
+    .field-easy {
         width: 166.6px;
         height: 166.6px;
     }
-    .field-normal{
+    .field-normal {
         width: 125px;
         height: 125px;
     }
 
-    .field-hard{
+    .field-hard {
         width: 100px;
         height: 100px;
     }
@@ -123,27 +165,92 @@
         margin: 35px auto;
         padding: 15px;
     }
+
+    #time, #game {
+        margin-top: 40px;
+    }
+
+    #time {
+        font-size: 24px;
+        height: 24px;
+    }
 }
 
-.container{
+.container {
     background-color: #737373;
     border: #cccccc solid 2px;
     border-radius: 35px 0;
 }
 
-body{
+body {
     background-color: #f7f7f7;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #56ccde;
 }
 
-.field-easy, .field-normal, .field-hard{
+.field-easy, .field-normal, .field-hard {
     float: left;
 }
 
-.btn{
+.field-easy .field  {
+    -webkit-transition: all 1.3s ease-in-out;
+    -moz-transition: all 1.3s ease-in-out;
+    -o-transition: all 1.3s ease-in-out;
+    -ms-transition: all 1.3s ease-in-out;
+    transition: all 1.3s ease-in-out;
+}
+
+.field-normal .field {
+    -webkit-transition: all 1.8s ease-in-out;
+    -moz-transition: all 1.8s ease-in-out;
+    -o-transition: all 1.8s ease-in-out;
+    -ms-transition: all 1.8s ease-in-out;
+    transition: all 1.8s ease-in-out;
+}
+
+.field-hard .field {
+    -webkit-transition: all 2.3s ease-in-out;
+    -moz-transition: all 2.3s ease-in-out;
+    -o-transition: all 2.3s ease-in-out;
+    -ms-transition: all 2.3s ease-in-out;
+    transition: all 2.3s ease-in-out;
+}
+
+.no-transition {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    -ms-transition: none !important;
+    transition: none !important;
+}
+
+.win-transition {
+    -webkit-transition: all 0.3s ease-in-out !important;
+    -moz-transition: all 0.3s ease-in-out !important;
+    -o-transition: all 0.3s ease-in-out !important;
+    -ms-transition: all 0.3s ease-in-out !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.lost-transition {
+    -webkit-transition: all 1s ease-in-out !important;
+    -moz-transition: all 1s ease-in-out !important;
+    -o-transition: all 1s ease-in-out !important;
+    -ms-transition: all 1s ease-in-out !important;
+    transition: all 1s ease-in-out !important;
+}
+
+.miss-transition {
+    -webkit-transition: all 0.5s ease-in-out !important;
+    -moz-transition: all 0.5s ease-in-out !important;
+    -o-transition: all 0.5s ease-in-out !important;
+    -ms-transition: all 0.5s ease-in-out !important;
+    transition: all 0.5s ease-in-out !important;
+}
+
+.btn {
     display: block;
     color: rgb(246, 245, 244);;
     background-color: #5bc0de;
@@ -155,8 +262,7 @@ body{
     cursor: pointer;
 }
 
-.field{
-    color: #ffce75;
+.field {
     background-color: #5bc0de;
     border: #267374 solid 2px;
     border-radius: 15px 0;
@@ -170,6 +276,19 @@ body{
     cursor: not-allowed !important;
 }
 
-#game {
+#game, #time {
     display: none;
+}
+
+#time {
+    color: #737373;
+    font-weight: bold;
+}
+
+.time {
+    float: left;
+}
+
+.best {
+    float: right;
 }
