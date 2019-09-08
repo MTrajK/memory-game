@@ -15,10 +15,10 @@
     var fields = [];
     var start = false;
     var pressed = 0;
-    var level = undefined;
     var timer = 0;
     var localStorageTime = undefined;
     var timerInterval = undefined;
+    var level = undefined;
     var gameOptions = {
         numLights: undefined,
         numFields: undefined,
@@ -27,7 +27,6 @@
 
     var StopGame = function () {
         clearInterval(timerInterval);
-        timer = 0;
 
         fields.forEach(function (field) {
             field.classList.add('stop');
@@ -45,6 +44,8 @@
                     field.style.backgroundColor = '#ffce75';
 
                     if (pressed == gameOptions.numLights) {
+                        StopGame();
+
                         modalText.innerHTML = 'Congratulations, you won!!!';
                         if ((localStorageTime === null) || (localStorageTime > timer)) {
                             if (localStorageTime !== null)
@@ -52,12 +53,10 @@
                             localStorage.setItem(`MemoryGame.${level}`, timer);
                             bestTime.innerHTML = currentTime.innerHTML;
                         }
-
-                        StopGame();
                         
                         setTimeout(function () {
-                            gameBtns.style.display = 'block';
                             modalBackground.style.display = 'block';
+                            gameBtns.style.display = 'block';
                         }, 500);
                     }
                 } else {
@@ -65,6 +64,7 @@
 
                     field.classList.add('lost-transition');
                     field.style.backgroundColor = '#ff5c81';
+
                     modalText.innerHTML = 'You lost.';
 
                     setTimeout(function () {
@@ -77,8 +77,8 @@
                     }, 500);
 
                     setTimeout(function () {
-                        gameBtns.style.display = 'block';
                         modalBackground.style.display = 'block';
+                        gameBtns.style.display = 'block';
                     }, 1000);
                 }
             }
@@ -105,10 +105,11 @@
     };
 
     var StartGame = function () {
+        fields = [];
         start = false;
         pressed = 0;
+        timer = 0;
         game.innerHTML = '';
-        fields = [];
 
         currentTime.innerHTML = '0.00';
         localStorageTime = localStorage.getItem(`MemoryGame.${level}`);
@@ -144,6 +145,7 @@
         }
         
         menu.style.display = 'none';
+        gameBtns.style.display = 'none';
         game.style.display = 'block';
         time.style.display = 'block';
 
@@ -164,10 +166,12 @@
 
         setTimeout(function () {
             start = true;
+
             fields.forEach(function (field) {
                 field.style.cursor = 'pointer';
                 field.classList.add('no-transition');
             });
+
             timerInterval = setInterval(function () {
                 timer += 10;
                 currentTime.innerHTML = ConvertTime(timer);
@@ -202,8 +206,8 @@
     });
 
     btnMenu.addEventListener('click', function () {
-        game.style.display = 'none';
         time.style.display = 'none';
+        game.style.display = 'none';
         gameBtns.style.display = 'none';
         menu.style.display = 'block';
     });
