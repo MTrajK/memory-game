@@ -4,7 +4,7 @@ A simple responsive and mobile-friendly browser game made in pure JS and CSS.
 
 [Play Game](https://mtrajk.github.io/memory-game/)
 
-![alt text](https://raw.githubusercontent.com/MTrajK/Memory-Game/master/img/game_screenshot.png "Memory game screenshot")
+![alt text](https://raw.githubusercontent.com/MTrajK/memory-game/master/img/game_screenshot.png "Memory game screenshot")
 
 ### Goals
 
