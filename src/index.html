@@ -40,31 +40,33 @@
     </div>
 
     <div id="time">
-        <div class="time">
+        <div class="current">
             <span>Time: </span>
-            <span id="current-time"></span>
+            <span id="time-current"></span>
         </div>
         <div class="best">
             <span>Best: </span>
-            <span id="best-time"></span>
+            <span id="time-best"></span>
         </div>
     </div>
 
-    <div class="container" id="game"> </div>
+    <div class="container" id="game-container"> </div>
 
-    <div id="game-buttons">
-        <button class="btn" id="btn-menu">Menu</button>
-        <button class="btn" id="btn-try">Try again</button>
+    <div id="end-buttons">
+        <button class="btn" id="end-menu">Menu</button>
+        <button class="btn" id="end-try">Try again</button>
     </div>
 
     <div id="modal-background">
-        <div id="modal">
+        <div id="modal-container">
             <h3 id="modal-text"></h3>
-            <button class="btn" id="close-modal">Close</button>
+            <button class="btn" id="modal-button">Close</button>
         </div>
     </div>
 
     <script src="js/game.js"></script>
+    <script src="js/app.js"></script>
+
 </body>
 
 </html>
