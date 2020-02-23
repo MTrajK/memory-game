@@ -35,8 +35,10 @@
 
                 pressed++;
                 if (pressed == gameOptions.numLights)
+                    // win
                     stopGame(true);
             } else {
+                // lose
                 addClass(field, 'wrong-transition');
 
                 setTimeout(function () {
@@ -58,6 +60,7 @@
         pressed = 0;
 
         for (var i = 0; i < gameOptions.numFields; i++) {
+            // create all fields
             var newField = document.createElement('div');
             addClass(newField, 'field');
             addClass(newField, 'start');
@@ -73,6 +76,7 @@
         }
 
         setTimeout(function () {
+            // random choose fields
             var leftLights = gameOptions.numLights;
             var leftFields = gameOptions.numFields - 1;
 
@@ -89,12 +93,14 @@
         }, 0);
 
         setTimeout(function () {
+            // fade choosen fields
             fields.forEach(function (field) {
                 removeClass(field, 'shine');
             });
         }, gameOptions.showingTime * 1.3);
 
         setTimeout(function () {
+            // make clickable all fields
             fields.forEach(function (field) {
                 removeClass(field, 'start');
                 addClass(field, 'allowed');
@@ -114,13 +120,9 @@
         initGame();
     }
 
-    function restartGame() {
-        initGame();
-    }
-
     window.Game = {
         start: startGame,
-        restart: restartGame
+        restart: initGame
     };
 
 }());

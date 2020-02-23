@@ -58,7 +58,7 @@
         return `${sec}.${millsec}`;
     }
 
-    // time
+    // timer
     var level, timer, localStorageTime, timerInterval;
 
     function createTimer() {
@@ -70,6 +70,7 @@
 
     function adjustTimer() {
         timer = 0;
+        // read from local storage the best result
         localStorageTime = localStorage.getItem(`MemoryGame.${level}`);
 
         time.current.innerHTML = '/';
@@ -81,6 +82,7 @@
         }
     }
 
+    // clear interval and show modal
     function endGame(win) {
         clearInterval(timerInterval);
 
@@ -90,6 +92,7 @@
             if ((localStorageTime === null) || (localStorageTime > timer)) {
                 modal.text.innerHTML = 'Congratulations, new record!!!';
                 time.best.innerHTML = time.current.innerHTML;
+                // save in local storage
                 localStorage.setItem(`MemoryGame.${level}`, timer);
             }
         } else
@@ -101,7 +104,7 @@
         }, win ? 500 : 1000);
     }
 
-    // menu buttons
+    // menu buttons listeners
     menu.buttons.forEach(function (button) {
         button.addEventListener('click', function () {
             level = button.getAttribute('id');
@@ -115,7 +118,7 @@
         })
     });
 
-    // end buttons
+    // end buttons listeners
     endButtons.menu.addEventListener('click', function () {
         hide(time.selector);
         hide(gameContainer);
@@ -130,7 +133,7 @@
         adjustTimer();
     });
 
-    // modal
+    // modal listeners
     modal.background.addEventListener('click', function () {
         hide(modal.background);
     });
