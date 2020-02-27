@@ -1,6 +1,6 @@
 # Memory Game
 
-A simple responsive and mobile-friendly browser game made using pure JS and CSS.
+A simple responsive and mobile-friendly browser game made using plain JS and CSS.
 
 **[Try it here](https://mtrajk.github.io/memory-game/)**
 

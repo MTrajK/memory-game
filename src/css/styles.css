@@ -14,14 +14,15 @@ body {
 
 .btn {
     display: block;
-    color: rgb(246, 245, 244);;
+    color: rgb(246, 245, 244);
     background-color: #5bc0de;
     border: #267374 solid 1px;
     border-radius: 15px 0;
-    font-size: larger;
     font-style: oblique;
     font-family: Arial, sans-serif;
     cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .btn:hover {
@@ -63,11 +64,12 @@ body {
     background-color: #f7f7f7;
     border: #cccccc solid 2px;
     border-radius: 35px 0;
+    text-align: center;
 }
 
 #modal-text {
     color: #737373;
-    text-align: center;
+    font-weight: bold;
 }
 
 #modal-button {
@@ -79,6 +81,7 @@ body {
 
 .field-easy, .field-normal, .field-hard {
     float: left;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .field {
@@ -88,7 +91,7 @@ body {
     margin: 5%;
     width: 90%;
     height: 90%;
-    cursor: not-allowed
+    cursor: not-allowed;
 }
 
 .allowed {
@@ -179,9 +182,10 @@ body {
 
     .btn {
         padding: 10px;
+        font-size: medium;
     }
 
-    #time {
+    #time, #modal-text {
         font-size: 15px;
         height: 15px;
     }
@@ -231,9 +235,10 @@ body {
 
     .btn {
         padding: 10px;
+        font-size: medium;
     }
 
-    #time {
+    #time, #modal-text {
         font-size: 18px;
         height: 18px;
     }
@@ -283,9 +288,10 @@ body {
 
     .btn {
         padding: 15px;
+        font-size: larger;
     }
 
-    #time {
+    #time, #modal-text {
         font-size: 21px;
         height: 21px;
     }
@@ -334,9 +340,10 @@ body {
 
     .btn {
         padding: 15px;
+        font-size: larger;
     }
 
-    #time {
+    #time, #modal-text {
         font-size: 24px;
         height: 24px;
     }
