@@ -1,19 +1,19 @@
 (function() {
 
     var menu = {
-        selector: document.querySelector('#menu'),
+        container: document.querySelector('#menu'),
         buttons: document.querySelectorAll('#menu button')
     };
     var time = {
-        selector: document.querySelector('#time'),
+        container: document.querySelector('#time'),
         current: document.querySelector('#time-current'),
         best: document.querySelector('#time-best')
     };
     var gameContainer = document.querySelector('#game-container');
-    var endButtons = {
-        selector: document.querySelector('#end-buttons'),
+    var endGameButtons = {
+        container: document.querySelector('#end-buttons'),
         menu: document.querySelector('#end-menu'),
-        try: document.querySelector('#end-try')
+        tryAgain: document.querySelector('#end-try')
     };
     var modal = {
         background: document.querySelector('#modal-background'),
@@ -50,18 +50,22 @@
     }
 
     function convertTime(t) {
+        // converts milliseconds in format 'x.yy' seconds.milliseconds(front 2 digits)
         var sec = parseInt(t / 1000);
-        var millsec = parseInt((t % 1000) / 10);
-        if (millsec < 10)
-            millsec = `0${millsec}`;
+        var millisec = parseInt((t % 1000) / 10);
+        if (millisec < 10)
+            millisec = '0' + millisec;
 
-        return `${sec}.${millsec}`;
+        return sec + '.' + millisec;
     }
 
-    // time
+    // timer
     var level, timer, localStorageTime, timerInterval;
 
     function createTimer() {
+        timer = 0;
+        time.current.innerHTML = convertTime(timer);
+
         timerInterval = setInterval(function() {
             timer += 10;
             time.current.innerHTML = convertTime(timer);
@@ -70,7 +74,8 @@
 
     function adjustTimer() {
         timer = 0;
-        localStorageTime = localStorage.getItem(`MemoryGame.${level}`);
+        // read from local storage the best result
+        localStorageTime = localStorage.getItem('MemoryGame' + level);
 
         time.current.innerHTML = '/';
         if (localStorageTime === null)
@@ -81,56 +86,56 @@
         }
     }
 
-    function endGame(win) {
+    // stop interval and show modal
+    function stopTimerAndShowModal(win) {
         clearInterval(timerInterval);
 
         if (win) {
             modal.text.innerHTML = 'Congratulations, you win!!!';
 
-            if ((localStorageTime === null) || (localStorageTime > timer)) {
+            if (localStorageTime === null || localStorageTime > timer) {
                 modal.text.innerHTML = 'Congratulations, new record!!!';
                 time.best.innerHTML = time.current.innerHTML;
-                localStorage.setItem(`MemoryGame.${level}`, timer);
+                // save in local storage
+                localStorage.setItem('MemoryGame' + level, timer);
             }
         } else
             modal.text.innerHTML = 'You lose.';
 
         setTimeout(function () {
             show(modal.background);
-            show(endButtons.selector);;
+            show(endGameButtons.container);;
         }, win ? 500 : 1000);
     }
 
-    // menu buttons
+    // menu buttons listeners
     menu.buttons.forEach(function (button) {
         button.addEventListener('click', function () {
-            level = button.getAttribute('id');
-            Game.start(levels[level], level, gameContainer, createTimer, endGame);
-
-            hide(menu.selector);
+            hide(menu.container);
             show(gameContainer);
-            show(time.selector);
+            show(time.container);
 
+            level = button.getAttribute('id');
             adjustTimer();
+            Game.start(levels[level], level, gameContainer, createTimer, stopTimerAndShowModal);
         })
     });
 
-    // end buttons
-    endButtons.menu.addEventListener('click', function () {
-        hide(time.selector);
+    // end buttons listeners
+    endGameButtons.menu.addEventListener('click', function () {
+        hide(time.container);
         hide(gameContainer);
-        hide(endButtons.selector);
-        show(menu.selector);
+        hide(endGameButtons.container);
+        show(menu.container);
     });
-    endButtons.try.addEventListener('click', function () {
-        hide(endButtons.selector);
-
-        Game.restart();
+    endGameButtons.tryAgain.addEventListener('click', function () {
+        hide(endGameButtons.container);
 
         adjustTimer();
+        Game.restart();
     });
 
-    // modal
+    // modal listeners
     modal.background.addEventListener('click', function () {
         hide(modal.background);
     });
