@@ -182,11 +182,9 @@ body {
 
     .btn {
         padding: 10px;
-        font-size: medium;
     }
 
-    #time, #modal-text {
-        font-size: 15px;
+    #time {
         height: 15px;
     }
 
@@ -206,6 +204,10 @@ body {
 
     #menu .btn, #modal-container .btn {
         margin: 15px auto;
+    }
+
+    .btn, #time, #modal-text {
+        font-size: 15px;
     }
 
     .field-easy {
@@ -235,11 +237,9 @@ body {
 
     .btn {
         padding: 10px;
-        font-size: medium;
     }
 
-    #time, #modal-text {
-        font-size: 18px;
+    #time {
         height: 18px;
     }
 
@@ -259,6 +259,10 @@ body {
 
     #menu .btn, #modal-container .btn {
         margin: 25px auto;
+    }
+
+    .btn, #time, #modal-text {
+        font-size: 18px;
     }
 
     .field-easy {
@@ -288,11 +292,9 @@ body {
 
     .btn {
         padding: 15px;
-        font-size: larger;
     }
 
-    #time, #modal-text {
-        font-size: 21px;
+    #time {
         height: 21px;
     }
 
@@ -312,6 +314,10 @@ body {
 
     #menu .btn, #modal-container .btn {
         margin: 35px auto;
+    }
+
+    .btn, #time, #modal-text {
+        font-size: 21px;
     }
 
     .field-easy {
@@ -340,11 +346,9 @@ body {
 
     .btn {
         padding: 15px;
-        font-size: larger;
     }
 
-    #time, #modal-text {
-        font-size: 24px;
+    #time {
         height: 24px;
     }
 
@@ -364,6 +368,10 @@ body {
 
     #menu .btn, #modal-container .btn {
         margin: 35px auto;
+    }
+
+    .btn, #time, #modal-text {
+        font-size: 24px;
     }
 
     .field-easy {
